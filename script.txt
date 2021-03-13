@@ -12,7 +12,7 @@ echo "создаем файлы:"
 touch 1.txt 2.txt 3.txt 4.json 5.json
 ls
 echo "перемещаем файлы:"
-mv 1.txt 2.txt /home/svsasha/svsasha/group_16/group_16/dir2
+mv 1.txt 2.txt /home/svsasha/group_16/group_16/dir2
 ls
 echo "переходим и просматриваем папку dir2:"
 cd ..

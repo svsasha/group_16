@@ -1,0 +1,23 @@
+16
+
+SELECT DISTINCT PCa.model as model_1, PCb.model as model_2, pca.speed, pca.ram
+FROM PC AS PCa, PC AS PCb
+WHERE PCa.model > PCb.model AND
+PCa.ram = PCb.ram AND PCa.speed = PCb.speed
+
+17
+
+SELECT DISTINCT Product.type, Laptop.model, Laptop.speed
+FROM Laptop, Product 
+WHERE Product.type='laptop' AND Laptop.speed < All (SELECT speed 
+ FROM PC
+ )
+
+18
+
+SELECT distinct product.maker, Printer.price
+FROM Printer, product
+WHERE Printer.model = Product.model AND printer.color = 'y' AND printer.price = (
+SELECT MIN(price) FROM printer
+WHERE printer.color = 'y'
+)

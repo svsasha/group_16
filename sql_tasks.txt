@@ -318,4 +318,19 @@ WHERE maker IN (SELECT maker from Product
 GROUP BY maker
 HAVING COUNT(model)=1)
 
+29
+Схема БД состоит из четырех таблиц:
+Payments(payment_id, family_member, good, amount, unit_price, date)
+Goods(good_id, good_name, type)
+Good_types(good_type_id, good_type_name)
+Famaly_Members(member_id, status, member_name, birthday)
+
+Определить, кто из членов семьи покупал картошку (potato)
+***
+SELECT  status
+FROM  FamilyMembers INNER JOIN Payments ON Payments.family_member=FamilyMembers.member_id
+WHERE  good IN (SELECT  good_name FROM  Goods
+WHERE  good_name = "potato" )
+
+
 
